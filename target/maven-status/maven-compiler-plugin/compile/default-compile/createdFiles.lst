@@ -1,0 +1,10 @@
+server\GeoJson.class
+server\Line.class
+server\MainApp.class
+server\Controller.class
+server\GeoJsonService.class
+server\Polygon.class
+server\IService.class
+server\WktService.class
+server\Point.class
+server\IShape.class
