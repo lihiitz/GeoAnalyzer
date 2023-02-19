@@ -8,7 +8,7 @@ import java.util.List;
 public class Polygon implements IShape {
 
     @Override
-    public int numOfVertices(GeoJson geoJson) {
+    public int numOfVertices(geoRequest geoJson) {
 
         List<Object> l1 = geoJson.getCoordinates();
         int sum = 0;
@@ -21,7 +21,7 @@ public class Polygon implements IShape {
     }
 
     @Override
-    public int numOfPoints(GeoJson geoJson) {
+    public int numOfPoints(geoRequest geoJson) {
         List<Object> l1 = geoJson.getCoordinates();
         int sum = 0;
 

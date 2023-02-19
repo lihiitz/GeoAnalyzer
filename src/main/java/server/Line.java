@@ -16,7 +16,7 @@ public class Line implements IShape {
         return slope1 == slope2;
     }
     @Override
-    public int numOfVertices(GeoJson geoJson) {
+    public int numOfVertices(geoRequest geoJson) {
         if(geoJson.getCoordinates().size() == 2){
             return 2;
         }
@@ -36,7 +36,7 @@ public class Line implements IShape {
     }
 
     @Override
-    public int numOfPoints(GeoJson geoJson) {
+    public int numOfPoints(geoRequest geoJson) {
         return geoJson.getCoordinates().size();
     }
 }

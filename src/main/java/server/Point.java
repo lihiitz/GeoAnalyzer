@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 public class Point implements IShape{
 
     @Override
-    public int numOfVertices(GeoJson geoJson) {
+    public int numOfVertices(geoRequest geoJson) {
         return 1;
     }
 
     @Override
-    public int numOfPoints(GeoJson geoJson) {
+    public int numOfPoints(geoRequest geoJson) {
         return 1;
     }
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GeoJson {
+public class geoRequest {
 
     private String type;
     private List<Object> coordinates;

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import server.GeoJson;
+import server.geoRequest;
 import server.IShape;
 
 import java.util.Map;
@@ -15,10 +15,10 @@ public class GeoJsonService implements IService {
     @Autowired
     private Map<String, IShape> shapeMap;
 
-    private GeoJson getGeoJson(String geo) {
-        GeoJson geoJson = null;
+    private geoRequest getGeoJson(String geo) {
+        geoRequest geoJson = null;
         try {
-            geoJson = new ObjectMapper().readValue(geo, GeoJson.class);
+            geoJson = new ObjectMapper().readValue(geo, geoRequest.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

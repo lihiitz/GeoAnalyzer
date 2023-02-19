@@ -2,7 +2,7 @@ package server;
 
 public interface IShape {
 
-    int numOfVertices(GeoJson geoJson);
+    int numOfVertices(geoRequest geoJson);
 
-    int numOfPoints(GeoJson geoJson);
+    int numOfPoints(geoRequest geoJson);
 }
