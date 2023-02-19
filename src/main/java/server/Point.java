@@ -9,4 +9,9 @@ public class Point implements IShape{
     public int numOfVertices(GeoJson geoJson) {
         return 1;
     }
+
+    @Override
+    public int numOfPoints(GeoJson geoJson) {
+        return 1;
+    }
 }

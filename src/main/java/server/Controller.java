@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import server.service.IService;
 
 import java.util.Map;
 
@@ -17,7 +18,12 @@ public class Controller {
     private Map<String, IService> serviceMap;
 
     @PostMapping("/dimensions")
-    int numOfVertices(@RequestBody String geo, @RequestHeader String header) {
-        return serviceMap.get(header).numOfVertices(geo);
+    int numOfVertices(@RequestBody String geo, @RequestHeader String geoType) {
+        return serviceMap.get(geoType).numOfVertices(geo);
+    }
+
+    @PostMapping("/points")
+    int numOfPoints(@RequestBody String geo, @RequestHeader String geoType){
+        return serviceMap.get(geoType).numOfPoints(geo);
     }
 }
