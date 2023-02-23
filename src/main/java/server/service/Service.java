@@ -1,6 +1,6 @@
 package server.service;
 
-public interface IService {
+public interface Service {
 
     int numOfVertices(String geo);
 

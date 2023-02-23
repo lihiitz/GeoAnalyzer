@@ -1,7 +1,8 @@
-package server;
+package server.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import server.Shape;
 
 import java.util.Map;
 
@@ -9,9 +10,9 @@ import java.util.Map;
 public class ShapeConfig {
 
     @Autowired
-    Map<String, Shape> shapeMap;
+    private Map<String, Shape> shapeMap;
 
-    public Shape getSahpe(String type){
+    public Shape getShape(String type){
         return shapeMap.get(type);
     }
 }

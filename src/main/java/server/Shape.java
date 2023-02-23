@@ -1,8 +1,10 @@
 package server;
 
-public interface IShape {
+import org.locationtech.jts.geom.Geometry;
 
-    int numOfVertices(geoRequest geoJson);
+public interface Shape {
 
-    int numOfPoints(geoRequest geoJson);
+    int numOfVertices(Geometry geo);
+
+    int numOfPoints(Geometry geo);
 }
