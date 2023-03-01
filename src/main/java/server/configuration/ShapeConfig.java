@@ -2,7 +2,7 @@ package server.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import server.Shape;
+import server.shapes.Shape;
 
 import java.util.Map;
 

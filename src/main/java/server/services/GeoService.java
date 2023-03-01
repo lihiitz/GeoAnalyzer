@@ -1,6 +1,6 @@
-package server.service;
+package server.services;
 
-public interface Service {
+public interface GeoService {
 
     int numOfVertices(String geo);
 
