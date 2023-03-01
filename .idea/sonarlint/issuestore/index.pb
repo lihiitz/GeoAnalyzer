@@ -1,21 +1,11 @@
 
-V
-&src/main/java/server/PolygonShape.java,b\0\b09ee1b4b969bc579c5c3c9ed97ab6f26de35e39
-\
-,src/main/java/server/service/WktService.java,4\0\40652d6ffb85f989d409a26562e4446f900c78cc
-Y
-)src/main/java/server/service/Service.java,1\8\1885bd82ed8b74145366f0999bd91b5b44caa011
-e
-5src/main/java/server/configuration/ServiceConfig.java,9\0\907d18f21bd3dabbdd6b2c1be250461dcfc67633
 c
 3src/main/java/server/configuration/ShapeConfig.java,b\1\b1aa77e0162e7115d5dd190ef6faab317e3a5413
 T
 $src/main/java/server/PointShape.java,4\0\40294acbaf7396ba080563f63c7ebf8743fd046c
 Q
 !src/main/java/server/MainApp.java,d\4\d44b08c1d507d8e3eb846dda5c0c882e4f91037c
-_
-/src/main/java/server/GeoAnalyzerController.java,7\9\79d36431a24ea14a4df4ba39c3c4617c2e1d2ae5
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-R
-"src/main/java/server/WktTests.java,1\f\1f5ec83b77e84e732f19fe03e43ba29b20afd937
+[
++src/main/java/server/test/GeoJsonTests.java,c\4\c41d233ff19c791360c4efd0600c9aeb329ebde8
