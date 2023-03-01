@@ -1,4 +1,4 @@
-package server;
+package server.shapes;
 
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Polygon;

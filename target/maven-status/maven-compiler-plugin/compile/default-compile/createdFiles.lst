@@ -1,10 +1,7 @@
-server\GeoJson.class
-server\Line.class
+server\test\GeoJsonTests.class
 server\MainApp.class
-server\Controller.class
-server\GeoJsonService.class
-server\Polygon.class
-server\IService.class
-server\WktService.class
-server\Point.class
-server\IShape.class
+server\services\GeoService.class
+server\test\GeoJsonServiceTest.class
+server\test\WktTests.class
+server\services\GeoJsonService.class
+server\services\WktService.class

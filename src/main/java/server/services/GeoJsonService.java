@@ -4,7 +4,7 @@
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import server.geoRequest;
-//import server.Shape;
+//import server.shapes.Shape;
 //
 //import java.util.Map;
 //
@@ -35,15 +35,16 @@
 //    }
 //}
 
-package server.service;
+package server.services;
 
 import org.locationtech.jts.geom.Geometry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.wololo.jts2geojson.GeoJSONReader;
 import server.configuration.ShapeConfig;
 
-@org.springframework.stereotype.Service("geoJson")
-public class GeoJsonService implements Service {
+@Service("geoJson")
+public class GeoJsonService implements GeoService {
 
     @Autowired
     private ShapeConfig shapeConfig;

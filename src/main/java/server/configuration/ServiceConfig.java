@@ -2,7 +2,7 @@ package server.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import server.service.Service;
+import server.services.GeoService;
 
 import java.util.Map;
 
@@ -10,10 +10,10 @@ import java.util.Map;
 public class ServiceConfig {
 
     @Autowired
-    private Map<String, Service> serviceMap;
+    private Map<String, GeoService> serviceMap;
 
 
-    public Service getService(String type) {
+    public GeoService getService(String type) {
         return serviceMap.get(type);
     }
 }
