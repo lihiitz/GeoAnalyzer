@@ -71,7 +71,6 @@ public class GeoJsonService implements GeoService {
                 .build();
     }
 
-
     private Geometry convertToGeometry(String geo) {
         GeoJSONReader reader = new GeoJSONReader();
         return reader.read(geo);
