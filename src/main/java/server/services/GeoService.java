@@ -1,8 +1,11 @@
 package server.services;
 
+import server.model.response.NumOfPointsResponse;
+import server.model.response.NumOfVerticesResponse;
+
 public interface GeoService {
 
-    int numOfVertices(String geo);
+    NumOfVerticesResponse numOfVertices(String geo);
 
-    int numOfPoints(String geo);
+    NumOfPointsResponse numOfPoints(String geo);
 }

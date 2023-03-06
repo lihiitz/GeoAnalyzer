@@ -1,7 +1,4 @@
-server\test\GeoJsonTests.class
 server\MainApp.class
 server\services\GeoService.class
-server\test\GeoJsonServiceTest.class
-server\test\WktTests.class
 server\services\GeoJsonService.class
 server\services\WktService.class
