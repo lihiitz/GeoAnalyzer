@@ -1,4 +1,0 @@
-server\MainApp.class
-server\services\GeoService.class
-server\services\GeoJsonService.class
-server\services\WktService.class
