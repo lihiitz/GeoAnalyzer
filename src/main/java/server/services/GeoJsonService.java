@@ -41,7 +41,9 @@ import org.locationtech.jts.geom.Geometry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wololo.jts2geojson.GeoJSONReader;
+import server.model.response.NumOfPointsResponse;
 import server.configuration.ShapeConfig;
+import server.model.response.NumOfVerticesResponse;
 
 @Service("geoJson")
 public class GeoJsonService implements GeoService {
@@ -50,17 +52,24 @@ public class GeoJsonService implements GeoService {
     private ShapeConfig shapeConfig;
 
     @Override
-    public int numOfVertices(String geo) {
+    public NumOfVerticesResponse numOfVertices(String geo) {
         Geometry geometry = convertToGeometry(geo);
-        return shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
+        int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
+
+        return NumOfVerticesResponse.builder()
+                .numOfVertices(numOfVertices)
+                .build();
     }
 
     @Override
-    public int numOfPoints(String geo) {
+    public NumOfPointsResponse numOfPoints(String geo) {
         Geometry geometry = convertToGeometry(geo);
-        return shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
-    }
+        int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
 
+        return NumOfPointsResponse.builder()
+                .numOfPoints(numOfPoints)
+                .build();
+    }
 
     private Geometry convertToGeometry(String geo) {
         GeoJSONReader reader = new GeoJSONReader();
