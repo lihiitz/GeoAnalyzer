@@ -45,7 +45,7 @@ import server.model.response.NumOfPointsResponse;
 import server.configuration.ShapeConfig;
 import server.model.response.NumOfVerticesResponse;
 
-@Service("geoJson")
+@Service("geo/json")
 public class GeoJsonService implements GeoService {
 
     @Autowired

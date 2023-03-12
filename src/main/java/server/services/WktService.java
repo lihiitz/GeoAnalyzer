@@ -11,7 +11,7 @@ import server.model.response.NumOfPointsResponse;
 import server.configuration.ShapeConfig;
 import server.model.response.NumOfVerticesResponse;
 
-@Service("wkt")
+@Service("geo/wkt")
 public class WktService implements GeoService {
 
     @Autowired

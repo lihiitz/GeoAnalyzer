@@ -9,21 +9,22 @@ import server.model.response.NumOfPointsResponse;
 import server.model.response.NumOfVerticesResponse;
 
 @RestController
-@RequestMapping("geo-analyzer")
+@RequestMapping
 @Slf4j
 @AllArgsConstructor
 public class GeoAnalyzerController {
 
+    private static final String CONTENT_TYPE = "Content-Type";
     @Autowired
     private ServiceConfig serviceConfiguration;
 
     @PostMapping("/dimensions")
-    public NumOfVerticesResponse numOfVertices(@RequestBody String geo, @RequestHeader String geoType) {
-        return serviceConfiguration.getService(geoType).numOfVertices(geo);
+    public NumOfVerticesResponse numOfVertices(@RequestBody String geo, @RequestHeader (name = CONTENT_TYPE) String geoTpe) {
+        return serviceConfiguration.getService(geoTpe).numOfVertices(geo);
     }
 
     @PostMapping("/points")
-    public NumOfPointsResponse numOfPoints(@RequestBody String geo, @RequestHeader String geoType) {
-        return serviceConfiguration.getService(geoType).numOfPoints(geo);
+    public NumOfPointsResponse numOfPoints(@RequestBody String geo, @RequestHeader (name = CONTENT_TYPE) String geoTpe) {
+        return serviceConfiguration.getService(geoTpe).numOfPoints(geo);
     }
 }
