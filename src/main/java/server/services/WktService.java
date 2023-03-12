@@ -16,10 +16,10 @@ public class WktService implements GeoService {
 
     @Autowired
     private ShapeConfig shapeConfig;
+    @Autowired
+    private WKTReader wktReader;
 
     private Geometry convertToGeometry(String geo){
-        GeometryFactory geometryFactory = new GeometryFactory(new PrecisionModel(), 4326);
-        WKTReader wktReader = new WKTReader(geometryFactory);
         Geometry geometry = null;
         try {
             geometry = wktReader.read(geo);
@@ -30,6 +30,7 @@ public class WktService implements GeoService {
     }
     public NumOfVerticesResponse numOfVertices(String geo) {
         Geometry geometry = convertToGeometry(geo);
+
         int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
         return NumOfVerticesResponse.builder()

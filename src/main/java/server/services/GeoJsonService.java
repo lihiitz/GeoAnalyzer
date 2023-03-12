@@ -51,9 +51,11 @@ public class GeoJsonService implements GeoService {
     @Autowired
     private ShapeConfig shapeConfig;
 
+    @Autowired
+    private GeoJSONReader reader;
     @Override
     public NumOfVerticesResponse numOfVertices(String geo) {
-        Geometry geometry = convertToGeometry(geo);
+        Geometry geometry = reader.read(geo);
         int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
         return NumOfVerticesResponse.builder()
@@ -63,16 +65,11 @@ public class GeoJsonService implements GeoService {
 
     @Override
     public NumOfPointsResponse numOfPoints(String geo) {
-        Geometry geometry = convertToGeometry(geo);
+        Geometry geometry = reader.read(geo);
         int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
 
         return NumOfPointsResponse.builder()
                 .numOfPoints(numOfPoints)
                 .build();
-    }
-
-    private Geometry convertToGeometry(String geo) {
-        GeoJSONReader reader = new GeoJSONReader();
-        return reader.read(geo);
     }
 }
