@@ -1,11 +1,11 @@
 package server.services;
 
-import server.model.response.NumOfPointsResponse;
-import server.model.response.NumOfVerticesResponse;
+import server.model.response.PointsResponse;
+import server.model.response.DimensionsResponse;
 
 public interface GeoService {
 
-    NumOfVerticesResponse numOfVertices(String geo);
+    DimensionsResponse numOfDimensions(String geo);
 
-    NumOfPointsResponse numOfPoints(String geo);
+    PointsResponse numOfPoints(String geo);
 }

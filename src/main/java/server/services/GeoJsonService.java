@@ -41,11 +41,11 @@ import org.locationtech.jts.geom.Geometry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wololo.jts2geojson.GeoJSONReader;
-import server.model.response.NumOfPointsResponse;
+import server.model.response.PointsResponse;
 import server.configuration.ShapeConfig;
-import server.model.response.NumOfVerticesResponse;
+import server.model.response.DimensionsResponse;
 
-@Service("geo/json")
+@Service
 public class GeoJsonService implements GeoService {
 
     @Autowired
@@ -54,21 +54,21 @@ public class GeoJsonService implements GeoService {
     @Autowired
     private GeoJSONReader reader;
     @Override
-    public NumOfVerticesResponse numOfVertices(String geo) {
+    public DimensionsResponse numOfDimensions(String geo) {
         Geometry geometry = reader.read(geo);
         int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
-        return NumOfVerticesResponse.builder()
+        return DimensionsResponse.builder()
                 .numOfVertices(numOfVertices)
                 .build();
     }
 
     @Override
-    public NumOfPointsResponse numOfPoints(String geo) {
+    public PointsResponse numOfPoints(String geo) {
         Geometry geometry = reader.read(geo);
         int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
 
-        return NumOfPointsResponse.builder()
+        return PointsResponse.builder()
                 .numOfPoints(numOfPoints)
                 .build();
     }

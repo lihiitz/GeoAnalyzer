@@ -20,7 +20,7 @@ class WktServiceTest {
 
     @Test
     public void pointGetNumOfVertices() {
-        assertThat(service.numOfVertices("POINT(0.5 0.5)")
+        assertThat(service.numOfDimensions("POINT(0.5 0.5)")
                 .getNumOfVertices()).isEqualTo(1);
     }
 
@@ -33,7 +33,7 @@ class WktServiceTest {
 
     @Test
     public void lineStringGetNumOfVertices() {
-        assertThat(service.numOfVertices(
+        assertThat(service.numOfDimensions(
                 "LINESTRING(1.0 1.0, 2.0 1.0, 3.0 0.0, 4.0 1.0, 5.0 2.0, 6.0 3.0, 7.0 3.0, 6.0 2.0)")
                 .getNumOfVertices()).isEqualTo(6);
     }
@@ -47,7 +47,7 @@ class WktServiceTest {
 
     @Test
     public void polygonGetNumOfVertices() {
-        assertThat(service.numOfVertices(
+        assertThat(service.numOfDimensions(
                 "POLYGON((0.5 0.5,5 0,5 5,0 5,0.5 0.5),(1.5 1,4 3,4 1,1.5 1))")
                 .getNumOfVertices()).isEqualTo(7);
     }

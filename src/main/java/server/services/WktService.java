@@ -1,17 +1,15 @@
 package server.services;
 
 import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import server.model.response.NumOfPointsResponse;
+import server.model.response.PointsResponse;
 import server.configuration.ShapeConfig;
-import server.model.response.NumOfVerticesResponse;
+import server.model.response.DimensionsResponse;
 
-@Service("geo/wkt")
+@Service
 public class WktService implements GeoService {
 
     @Autowired
@@ -28,22 +26,22 @@ public class WktService implements GeoService {
         }
         return geometry;
     }
-    public NumOfVerticesResponse numOfVertices(String geo) {
+    public DimensionsResponse numOfDimensions(String geo) {
         Geometry geometry = convertToGeometry(geo);
 
         int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
-        return NumOfVerticesResponse.builder()
+        return DimensionsResponse.builder()
                 .numOfVertices(numOfVertices)
                 .build();
     }
 
     @Override
-    public NumOfPointsResponse numOfPoints(String geo) {
+    public PointsResponse numOfPoints(String geo) {
         Geometry geometry = convertToGeometry(geo);
         int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
 
-        return NumOfPointsResponse.builder()
+        return PointsResponse.builder()
                 .numOfPoints(numOfPoints)
                 .build();
     }

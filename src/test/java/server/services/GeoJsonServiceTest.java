@@ -26,7 +26,7 @@ class GeoJsonServiceTest {
 
     @Test
     public void pointGetNumOfVertices() {
-        assertThat(service.numOfVertices(createInput("Point", "[102.0, 0.5]"))
+        assertThat(service.numOfDimensions(createInput("Point", "[102.0, 0.5]"))
                 .getNumOfVertices()).isEqualTo(1);
     }
 
@@ -39,7 +39,7 @@ class GeoJsonServiceTest {
 
     @Test
     public void lineStringGetNumOfVertices() {
-        assertThat(service.numOfVertices(createInput(
+        assertThat(service.numOfDimensions(createInput(
                         "LineString", "[[1.0, 1.0], [2.0, 1.0], [3.0, 0.0], [4.0, 1.0], [5.0, 2.0], [6.0, 3.0], [7.0, 3.0], [6.0, 2.0]]"))
                 .getNumOfVertices()).isEqualTo(6);
     }
@@ -53,7 +53,7 @@ class GeoJsonServiceTest {
 
     @Test
     public void polygonGetNumOfVertices() {
-        assertThat(service.numOfVertices(createInput(
+        assertThat(service.numOfDimensions(createInput(
                         "Polygon", "[[[0.5, 0.5], [5.0, 0.0], [5.5, 5.0], [0.0, 5.0], [0.5, 0.5]], [[1.5, 1.0], [4.0, 3.0], [4.0, 1.0], [1.5, 1.0]]]"))
                 .getNumOfVertices()).isEqualTo(7);
     }
