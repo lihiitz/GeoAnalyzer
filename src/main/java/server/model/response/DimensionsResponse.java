@@ -7,5 +7,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class DimensionsResponse {
 
-    private int numOfVertices;
+    private int numOfDimensions;
 }

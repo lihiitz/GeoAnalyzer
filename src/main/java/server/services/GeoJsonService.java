@@ -59,7 +59,7 @@ public class GeoJsonService implements GeoService {
         int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
         return DimensionsResponse.builder()
-                .numOfVertices(numOfVertices)
+                .numOfDimensions(numOfVertices)
                 .build();
     }
 
