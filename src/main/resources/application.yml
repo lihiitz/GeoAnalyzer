@@ -1,4 +1,3 @@
 serviceMap:
-   geo/wkt: server.services.WktService
-   geo/json: server.services.GeoJsonService
-
+   "[geo/wkt]": server.services.WktService
+   "[geo/json]": server.services.GeoJsonService
