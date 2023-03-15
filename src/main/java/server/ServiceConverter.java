@@ -10,16 +10,17 @@ import server.services.GeoService;
 @Component
 @ConfigurationPropertiesBinding
 public class ServiceConverter implements Converter<String, GeoService> {
-
     @Autowired
     private ApplicationContext context;
+
     @Override
     public GeoService convert(String source) {
         GeoService service = null;
         try {
             service = (GeoService) context.getBean(Class.forName(source));
-        }catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e){
             throw new RuntimeException(e);
         }
-        return service;    }
+        return service;
+    }
 }

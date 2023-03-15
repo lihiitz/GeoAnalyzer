@@ -17,7 +17,7 @@ public class WktService implements GeoService {
     @Autowired
     private WKTReader wktReader;
 
-    private Geometry convertToGeometry(String geo){
+    private Geometry convertToGeometry(String geo) {
         Geometry geometry = null;
         try {
             geometry = wktReader.read(geo);
@@ -26,23 +26,30 @@ public class WktService implements GeoService {
         }
         return geometry;
     }
+
     public DimensionsResponse numOfDimensions(String geo) {
-        Geometry geometry = convertToGeometry(geo);
-
-        int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
-
-        return DimensionsResponse.builder()
-                .numOfDimensions(numOfVertices)
-                .build();
+        try {
+            Geometry geometry = convertToGeometry(geo);
+            int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
+            return DimensionsResponse.builder()
+                    .numOfDimensions(numOfVertices)
+                    .build();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
     public PointsResponse numOfPoints(String geo) {
-        Geometry geometry = convertToGeometry(geo);
-        int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
+        try {
+            Geometry geometry = convertToGeometry(geo);
+            int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
 
-        return PointsResponse.builder()
-                .numOfPoints(numOfPoints)
-                .build();
+            return PointsResponse.builder()
+                    .numOfPoints(numOfPoints)
+                    .build();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 }

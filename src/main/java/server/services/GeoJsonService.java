@@ -55,21 +55,28 @@ public class GeoJsonService implements GeoService {
     private GeoJSONReader reader;
     @Override
     public DimensionsResponse numOfDimensions(String geo) {
-        Geometry geometry = reader.read(geo);
-        int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
+        try {
+            Geometry geometry = reader.read(geo);
+            int numOfVertices = shapeConfig.getShape(geometry.getGeometryType()).numOfVertices(geometry);
 
-        return DimensionsResponse.builder()
-                .numOfDimensions(numOfVertices)
-                .build();
+            return DimensionsResponse.builder()
+                    .numOfDimensions(numOfVertices)
+                    .build();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
     public PointsResponse numOfPoints(String geo) {
-        Geometry geometry = reader.read(geo);
-        int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
-
-        return PointsResponse.builder()
-                .numOfPoints(numOfPoints)
-                .build();
+        try {
+            Geometry geometry = reader.read(geo);
+            int numOfPoints = shapeConfig.getShape(geometry.getGeometryType()).numOfPoints(geometry);
+            return PointsResponse.builder()
+                    .numOfPoints(numOfPoints)
+                    .build();
+        }catch (Exception e){
+            throw new IllegalArgumentException(e);
+        }
     }
 }
